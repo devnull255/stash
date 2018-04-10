@@ -14,6 +14,13 @@ type ContactDetails struct {
 	Message string
 }
 
+func addContactDetails(cd ContactDetails) error {
+	sess, err := session.NewSession()
+	if err != nil {
+	    return fmt.Errorf("Error creating session: %s", err)
+        }
+	svc := s3.New(sess)
+}
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
